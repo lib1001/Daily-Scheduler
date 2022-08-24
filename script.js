@@ -1,36 +1,58 @@
-function setDate() {
-    var today = moment().format("dddd, MMM Do YYYY");
+var today = moment().format("dddd, MMM Do YYYY");
 $('#currentDay').text(today);
+
+$(".saveBtn").on('click', function() {
+
+})
+
+// var hour8am = $("#8am");
+// var hour9am = $("#9am");
+// var hour10am = $("#10am");
+// var hour11am = $("#11am");
+// var hour12pm = $("#12pm");
+// var hour1pm = $("#1pm");
+// var hour2pm = $("#2pm");
+// var hour3pm = $("#3pm");
+// var hour4pm = $("#4pm");
+// var hour5pm = $("#5pm");
+// var hoursArr = ["hour8am", "hour9am", "hour10am", "hour11am", "hour12pm", "hour1pm", "hour2pm", "hour3pm", "hour4pm", "hour5pm"];
+
+// var time = moment().format("kk");
+
+
+function checkHour(){
+    var currentHour = moment().hours()
+    console.log(currentHour)
+    $(".time-block").each(function() {
+        console.log($(this))
+        var blockHour = parseInt($(this).attr("id"))
+        if (currentHour === blockHour) {
+            $(this).children().addClass("present")
+        }
+        else if (currentHour > blockHour) {
+            $(this).children().addClass("past")
+        }
+        else {
+            $(this).children().addClass("future")
+        }
+    })
 }
-setDate();
 
-var hour8am = $("#8am");
-var hour9am = $("#9am");
-var hour10am = $("#10am");
-var hour11am = $("#11am");
-var hour12pm = $("#12pm");
-var hour1pm = $("#1pm");
-var hour2pm = $("#2pm");
-var hour3pm = $("#3pm");
-var hour4pm = $("#4pm");
-var hour5pm = $("#5pm");
-var hoursArr = ["hour 8am", "hour9am", "hour10am", "hour11am", "hour12pm", "hour1pm", "hour2pm", "hour3pm", "hour4pm", "hour5pm"];
+checkHour();
 
-var time = moment().format("h hh");
-
-
-
-for (var i = 0; i < hoursArr.length; i++);
-    // if (now > hoursArr[i].data("hour")) {
-    //     hoursArr[i].addClass(past);
-    // }
-    // else if (now < hoursArr[i].data(hour)) {
-    //     hoursArr[i].addClass("future");
-    // }
-    // else {
-    //     hoursArr[i].addClass("present");
-    // }
-
+// function setColor() {
+// for (var i = 0; i < hoursArr.length; i++);
+// $(".hour").removeClass(".present .past .future");
+// if (moment().isAfter("hoursArr")) {
+//     $(".hour")[i].addClass(".past");
+// }
+// else if (moment().isBefore(hoursArr)) {
+//     $(".hour")[i].addClass(".future");
+// }
+// else {
+//     $(".hour")[i].addClass(".present");
+// }
+// }
 
 
 // if (moment().isAfter(time)) {
