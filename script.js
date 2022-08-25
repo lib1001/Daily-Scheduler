@@ -14,6 +14,7 @@ var hour4 = $("#4");
 var hour5 = $("#5");
 var hoursArr = ["hour8", "hour9", "hour10", "hour11", "hour12", "hour1", "hour2", "hour3", "hour4", "hour5"];
 
+// changes text area color according to past, present, or future
 function changeColor() {
     for (var i = 0; i < hoursArr.length[i]; i++)
     hoursArr[i].removeClass("future past present");
@@ -34,12 +35,14 @@ function changeColor() {
     })
 }
 
+// saves data to local storage when user clicks save button
 $(".saveBtn").on("click", function() {
     var schedule = $(this).siblings(".description").val()
     var time = $(this).parent().attr("id")
     localStorage.setItem(time, schedule)
 })
 
+// retains saved data in text area
 function renderLastRegistered() {
     $("#8 .description").text(localStorage.getItem("8"))
     $("#9 .description").text(localStorage.getItem("9"))
