@@ -30,7 +30,6 @@ function changeColor() {
   for (var i = 0; i < hoursArr.length[i]; i++)
     hoursArr[i].removeClass("future past present");
   var currentTime = moment().hours();
-  // console.log(currentTime);
   $(".time-block").each(function () {
     console.log($(this));
     var colorTime = parseInt($(this).attr("id"));
