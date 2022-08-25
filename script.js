@@ -1,36 +1,52 @@
+var hour8am = $("#8am");
+var hour9am = $("#9am");
+var hour10am = $("#10am");
+var hour11am = $("#11am");
+var hour12pm = $("#12pm");
+var hour1pm = $("#1pm");
+var hour2pm = $("#2pm");
+var hour3pm = $("#3pm");
+var hour4pm = $("#4pm");
+var hour5pm = $("#5pm");
+var hoursArr = ["hour8am", "hour9am", "hour10am", "hour11am", "hour12pm", "hour1pm", "hour2pm", "hour3pm", "hour4pm", "hour5pm"];
+
+
+
 var today = moment().format("dddd, MMM Do YYYY");
 $('#currentDay').text(today);
 
-$(".saveBtn").on('click', function() {
 
+// go over this
+$(".saveBtn").on("click", function() {
+    var value = $(this).siblings(".description").val()
+    var time = $(this).parent().attr("id")
+    localStorage.setItem(time, value)
 })
 
-// var hour8am = $("#8am");
-// var hour9am = $("#9am");
-// var hour10am = $("#10am");
-// var hour11am = $("#11am");
-// var hour12pm = $("#12pm");
-// var hour1pm = $("#1pm");
-// var hour2pm = $("#2pm");
-// var hour3pm = $("#3pm");
-// var hour4pm = $("#4pm");
-// var hour5pm = $("#5pm");
-// var hoursArr = ["hour8am", "hour9am", "hour10am", "hour11am", "hour12pm", "hour1pm", "hour2pm", "hour3pm", "hour4pm", "hour5pm"];
-
-// var time = moment().format("kk");
+$("#8am .description").text(localStorage.getItem("8am"))
+$("#9am .description").text(localStorage.getItem("9am"))
+$("#10am .description").text(localStorage.getItem("10am"))
+$("#11am .description").text(localStorage.getItem("11am"))
+$("#12pm .description").text(localStorage.getItem("12pm"))
+$("#1pm .description").text(localStorage.getItem("1pm"))
+$("#2pm .description").text(localStorage.getItem("2pm"))
+$("#3pm .description").text(localStorage.getItem("3pm"))
+$("#4pm .description").text(localStorage.getItem("4pm"))
+$("#5pm .description").text(localStorage.getItem("5pm"))
 
 
-function checkHour(){
-    var currentHour = moment().hours()
-    console.log(currentHour)
+function changeColor() {
+    for (var i = 0; i < hoursArr.length[i]; i++)
+    var currentTime = moment().format("hh")
+    console.log(currentTime);
     $(".time-block").each(function() {
-        console.log($(this))
-        var blockHour = parseInt($(this).attr("id"))
-        if (currentHour === blockHour) {
-            $(this).children().addClass("present")
+        console.log($(this));
+        var colorTime = parseInt($(this).attr("id"));
+        if (currentTime > colorTime) {
+            $(this).children().addClass("past");
         }
-        else if (currentHour > blockHour) {
-            $(this).children().addClass("past")
+        else if (currentTime === colorTime) {
+            $(this).children().addClass("present");
         }
         else {
             $(this).children().addClass("future")
@@ -38,121 +54,4 @@ function checkHour(){
     })
 }
 
-checkHour();
-
-// function setColor() {
-// for (var i = 0; i < hoursArr.length; i++);
-// $(".hour").removeClass(".present .past .future");
-// if (moment().isAfter("hoursArr")) {
-//     $(".hour")[i].addClass(".past");
-// }
-// else if (moment().isBefore(hoursArr)) {
-//     $(".hour")[i].addClass(".future");
-// }
-// else {
-//     $(".hour")[i].addClass(".present");
-// }
-// }
-
-
-// if (moment().isAfter(time)) {
-    //         $(".hour").addClass(".past");
-    //     }
-    //     else if (moment().isBefore(time)) {
-    //         $(".hour").addClass(".future");
-    //     }
-    //     else {
-    //         $(".hour").addClass(".present");
-    //     }
-    // }
-
-
-// var saveBtnEl = document.getElementsByClassName("saveBtn");
-
-// saveBtnEl.onclick = function(event) {
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var saveBtn = document.getElementsByClassName("#saveBtn");
-
-// saveBtn.addEventListener("click", $(function() {
-//     var text = $(this).siblings(".colChange").val();
-//     localStorage.setItem(text);
-// })
-// )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var checkTime = function() {
-//     var hour = $('.hour').text().trim();
-//     var time = moment("h hh");
-//     console.log(time);
-    
-// $(".hour").removeClass(".present .past .future");
-
-//     if (moment().isAfter(time)) {
-//         $(".hour").addClass(".past");
-//     }
-//     else if (moment().isBefore(time)) {
-//         $(".hour").addClass(".future");
-//     }
-//     else {
-//         $(".hour").addClass(".present");
-//     }
-// }
-    
-// }
-// var time = moment().format('hh');
-// console.log();
-// $(#row)
-
-// var colChange = document.getElementsByClassName("colChange");
-
-// var currentHour = (new Date()).getHours();
-// $(".colChange").each
-
-
-
-// var checkTime = function () {
-//     var hour = $(".hour").text().trim();
-
-//     var time = moment(hour, "LT");
-//     console.log(time)
-
-//     //remove any old classes from element
-//     $(".hour").removeClass(".present .past .future");
-
-//     // apply new class if task is near/over due date
-//     if (moment().isAfter(time)) {
-//         $(".hour").addClass(".past");
-//     } else if (moment().isBefore(time)) {
-//         $(".hour").addClass(".future");
-//     } else {
-//         $(".hour").addClass(".present");
+changeColor();
