@@ -15,7 +15,7 @@ To use this daily schedular, the user will first be presented with today's date,
 
 <a href="https://lib1001.github.io/Daily-Scheduler/">Try the application!</a>
 
-![Deployed application:] (images\screencapture-lib1001-github-io-Daily-Scheduler-2022-08-25-17_52_06.pdf)
+![Deployed application:](images\screencapture-lib1001-github-io-Daily-Scheduler-2022-08-25-17_52_06.pdf)
 
 
 ## License
