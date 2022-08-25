@@ -18,6 +18,7 @@ To use this daily schedular, the user will first be presented with today's date,
 ![Deployed application:](images\screencapture-lib1001-github-io-Daily-Scheduler-2022-08-25-18_08_22.png)
 
 
+
 ## License
 
 N/A
